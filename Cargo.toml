@@ -1,0 +1,15 @@
+[package]
+build = "build.rs"
+name = "board"
+version = "0.1.0"
+
+[dependencies]
+cortex-m = "0.1.4"
+r0 = "0.1.0"
+
+[dependencies.compiler_builtins]
+features = ["mem"]
+git = "https://github.com/rust-lang-nursery/compiler-builtins"
+
+[profile.release]
+lto = true
