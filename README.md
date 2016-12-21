@@ -6,6 +6,8 @@
 
 > A crate to play with this nrf51822 module
 
+(Based on this [template](https://github.com/japaric/cortex-m-template))
+
 <p align="center">
 <img width="320" title="STM32F3DISCOVERY" src="assets/nrf51822.jpg">
 </p>
