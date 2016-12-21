@@ -1,15 +1,19 @@
 [package]
+authors = ["Jorge Aparicio <japaricious@gmail.com>"]
 build = "build.rs"
-name = "board"
+name = "nrf51822"
 version = "0.1.0"
 
 [dependencies]
-cortex-m = "0.1.4"
+cortex-m = "0.1.5"
 r0 = "0.1.0"
 
 [dependencies.compiler_builtins]
 features = ["mem"]
 git = "https://github.com/rust-lang-nursery/compiler-builtins"
+
+[dependencies.nrf51-memory-map]
+git = "https://github.com/japaric/nrf51-memory-map"
 
 [profile.release]
 lto = true

@@ -16,9 +16,10 @@ pub unsafe extern "C" fn _default_exception_handler() {
 
     // NOTE need asm!, #[naked] and unreachable() to avoid modifying the stack
     // pointer (MSP) so it points to the previous stack frame
+    // TODO replace `bl` with `b`
     asm!("mrs r0, MSP
           ldr r1, [r0, #20]
-          b $0" :: "i"(deh as extern "C" fn(&StackFrame) -> !) :: "volatile");
+          bl $0" :: "i"(deh as extern "C" fn(&StackFrame) -> !) :: "volatile");
 
     intrinsics::unreachable();
 }

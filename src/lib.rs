@@ -1,4 +1,4 @@
-//! A crate to hack the $DEVELOPMENT_BOARD!
+//! Hack the nrf51822
 
 #![feature(asm)]
 #![feature(compiler_builtins_lib)]
@@ -13,6 +13,8 @@ extern crate compiler_builtins;
 #[macro_use]
 extern crate cortex_m;
 extern crate r0;
+
+pub extern crate nrf51_memory_map as peripheral;
 
 mod lang_items;
 

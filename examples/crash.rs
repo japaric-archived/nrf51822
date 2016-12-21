@@ -1,7 +1,7 @@
 #![no_main]
 #![no_std]
 
-extern crate board;
+extern crate nrf51822;
 
 use core::ptr;
 

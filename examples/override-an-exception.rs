@@ -3,7 +3,7 @@
 #![no_std]
 
 #[macro_use]
-extern crate board;
+extern crate nrf51822;
 
 use core::ptr;
 

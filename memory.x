@@ -1,8 +1,7 @@
 MEMORY
 {
-  /* TODO You must correct these values */
-  FLASH : ORIGIN = 0x0BAAAD00, LENGTH = 2K
-  RAM : ORIGIN = 0x2BAAAD00, LENGTH = 0
+  FLASH : ORIGIN = 0x00000000, LENGTH = 256K
+  RAM : ORIGIN = 0x20000000, LENGTH = 16K
 }
 
 ENTRY(_reset)
