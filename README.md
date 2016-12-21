@@ -7,7 +7,7 @@
 > A crate to play with this nrf51822 module
 
 <p align="center">
-<img title="STM32F3DISCOVERY" src="assets/nrf51822.jpg">
+<img width="320" title="STM32F3DISCOVERY" src="assets/nrf51822.jpg">
 </p>
 
 ## First use
