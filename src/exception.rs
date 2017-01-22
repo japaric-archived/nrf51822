@@ -1,6 +1,6 @@
 //! Exceptions
 
-use cortex_m::{Handler, StackFrame};
+use cortex_m::{Exception, Handler, StackFrame};
 
 // This default exception handler gives you access to the previous stack frame
 // which is where the exception occurred. To be able to do that, the handler is
@@ -24,8 +24,10 @@ pub unsafe extern "C" fn _default_exception_handler() {
     intrinsics::unreachable();
 }
 
-// Default exception handler that has access to previous stack frame `_sf`
-extern "C" fn deh(_sf: &StackFrame) -> ! {
+// Default exception handler that has access to previous stack frame `sf`
+extern "C" fn deh(sf: &StackFrame) -> ! {
+    hprintln!("EXCEPTION {:?} @ PC=0x{:08x}", Exception::current(), sf.pc);
+
     unsafe {
         bkpt!();
     }
