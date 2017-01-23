@@ -6,15 +6,22 @@ version = "0.1.0"
 
 [dependencies]
 cortex-m = "0.1.6"
-cortex-m-semihosting = "0.1.0"
 r0 = "0.1.0"
 
 [dependencies.compiler_builtins]
 features = ["mem"]
 git = "https://github.com/rust-lang-nursery/compiler-builtins"
 
+[dependencies.cortex-m-semihosting]
+optional = true
+version = "0.1.0"
+
 [dependencies.nrf51-memory-map]
 git = "https://github.com/japaric/nrf51-memory-map"
+
+[features]
+default = ["semihosting"]
+semihosting = ["cortex-m-semihosting"]
 
 [profile.release]
 lto = true

@@ -9,6 +9,7 @@
 #![no_std]
 
 extern crate compiler_builtins;
+#[cfg(feature = "semihosting")]
 #[macro_reexport(hprint, hprintln)]
 #[macro_use]
 extern crate cortex_m_semihosting;
@@ -18,6 +19,9 @@ extern crate cortex_m;
 extern crate r0;
 
 pub extern crate nrf51_memory_map as peripheral;
+
+#[macro_use]
+mod macros;
 
 mod lang_items;
 
