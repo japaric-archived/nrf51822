@@ -5,9 +5,9 @@ extern crate nrf51822;
 
 #[no_mangle]
 pub fn main() -> ! {
-    let y: u32;
-    let x: u32 = 0xDEADBEEF;
-    y = 0xBAAAAAAD;
+    let _y: u32;
+    let _x: u32 = 0xDEADBEEF;
+    _y = 0xBAAAAAAD;
 
     loop {}
 }

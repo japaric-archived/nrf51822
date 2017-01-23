@@ -1,6 +1,8 @@
 //! Exceptions
 
-use cortex_m::{Exception, Handler, StackFrame};
+#[cfg(feature = "semihosting")]
+use cortex_m::Exception;
+use cortex_m::{Handler, StackFrame};
 
 // This default exception handler gives you access to the previous stack frame
 // which is where the exception occurred. To be able to do that, the handler is

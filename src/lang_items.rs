@@ -9,12 +9,12 @@ unsafe extern "C" fn panic_fmt(_args: Arguments,
     match () {
         #[cfg(feature = "semihosting")]
         () => {
-            ::cortex_m_semihosting::io::_write_fmt(args);
+            ::cortex_m_semihosting::io::_write_fmt(_args);
         }
         #[cfg(not(feature = "semihosting"))]
         () => {}
     }
-    hprintln!("', {}:{}", file, line);
+    hprintln!("', {}:{}", _file, _line);
 
     bkpt!();
 
