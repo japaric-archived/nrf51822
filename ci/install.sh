@@ -18,4 +18,6 @@ main() {
            --target x86_64-unknown-linux-gnu
 }
 
-main
+if [ $TRAVIS_BRANCH != master ] || [ $TRAVIS_EVENT_TYPE = cron ];
+   main
+fi
