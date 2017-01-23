@@ -25,8 +25,11 @@ mod macros;
 
 mod lang_items;
 
+pub mod led;
 pub mod exception;
 pub mod interrupt;
 
 // "Pre `main`" initialization routine
-fn init() {}
+fn init() {
+    led::init()
+}

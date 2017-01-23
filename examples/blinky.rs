@@ -4,14 +4,11 @@
 extern crate nrf51822;
 
 use nrf51822::peripheral;
+use nrf51822::led::Led;
 
 #[no_mangle]
 pub fn main() -> ! {
-    let gpio = unsafe { peripheral::gpio_mut() };
     let timer0 = unsafe { peripheral::timer0_mut() };
-
-    // configure P8 as output
-    gpio.dirset.write(|w| w.pin8(true));
 
     // configure as timer
     timer0.mode.write(|w| w.mode(false));
@@ -35,11 +32,9 @@ pub fn main() -> ! {
     let mut on = true;
     loop {
         if on {
-            // set P8 high
-            gpio.outset.write(|w| w.pin8(true));
+            Led.on();
         } else {
-            // set P8 low
-            gpio.outclr.write(|w| w.pin8(true));
+            Led.off();
         }
 
         on = !on;
