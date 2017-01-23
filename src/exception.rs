@@ -58,16 +58,10 @@ pub unsafe extern "C" fn reset() -> ! {
 
     extern "Rust" {
         // `main`, the entry point of the user program
-        // NOTE the right signature of `main` is `fn() -> !`. But the user might
-        // get that wrong so let's err on the side of caution and install a
-        // safety net. (See below)
-        fn main();
+        fn main() -> !;
     }
 
-    main();
-
-    // safety net in case `main` returns
-    panic!("returned from `main`!")
+    main()
 }
 
 // List of all the exceptions minus the reset handler as allocated in the
