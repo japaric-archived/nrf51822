@@ -5,22 +5,21 @@ extern crate nrf51822;
 
 use nrf51822::peripheral;
 use nrf51822::led::Led;
+use nrf51822::peripheral::timer::{BitmodeWBitmode, ModeWMode, ShortsWCompare0Clear};
 
 #[no_mangle]
 pub fn main() -> ! {
     let timer0 = unsafe { peripheral::timer0_mut() };
 
-    // configure as timer
-    timer0.mode.write(|w| w.mode(false));
+    timer0.mode.write(|w| w.mode(ModeWMode::Timer));
 
     // 24-bit timer
-    timer0.bitmode.write(|w| w.bitmode(2));
+    timer0.bitmode.write(|w| w.bitmode(BitmodeWBitmode::_24Bit));
 
     // prescaler = 2 ^ 4 = 16
     timer0.prescaler.write(|w| w.prescaler(4));
 
-    // clear the timer after the `compare` value is reached
-    timer0.shorts.modify(|_, w| w.compare0_clear(true));
+    timer0.shorts.modify(|_, w| w.compare0_clear(ShortsWCompare0Clear::Enabled));
 
     // reset the timer after 1_000_000 ticks
     // NOTE clock frequency = 16 MHz

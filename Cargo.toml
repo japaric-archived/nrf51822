@@ -17,6 +17,7 @@ optional = true
 version = "0.1.1"
 
 [dependencies.nrf51-memory-map]
+branch = "enum"
 git = "https://github.com/japaric/nrf51-memory-map"
 
 [features]
