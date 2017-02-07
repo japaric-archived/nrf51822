@@ -10,17 +10,15 @@ use nrf51822::led::Led;
 pub fn main() -> ! {
     let timer0 = unsafe { peripheral::timer0_mut() };
 
-    // configure as timer
-    timer0.mode.write(|w| w.mode(false));
+    timer0.mode.write(|w| w.mode().timer());
 
     // 24-bit timer
-    timer0.bitmode.write(|w| w.bitmode(2));
+    timer0.bitmode.write(|w| w.bitmode()._24bit());
 
     // prescaler = 2 ^ 4 = 16
     timer0.prescaler.write(|w| w.prescaler(4));
 
-    // clear the timer after the `compare` value is reached
-    timer0.shorts.modify(|_, w| w.compare0_clear(true));
+    timer0.shorts.modify(|_, w| w.compare0_clear().enabled());
 
     // reset the timer after 1_000_000 ticks
     // NOTE clock frequency = 16 MHz
